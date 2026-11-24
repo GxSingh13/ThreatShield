@@ -1,0 +1,18 @@
+{
+    "selected_model": "Random Forest - Depth 20 Leaf 2",
+    "selection_metric": "Validation Balanced Accuracy",
+    "decision_threshold": 0.64,
+    "minimum_attack_recall_target": 0.95,
+    "validation_metrics": {
+        "Threshold": 0.64,
+        "Accuracy": 0.9520088967464142,
+        "Precision": 0.9767082079931242,
+        "Normal Recall": 0.9516071428571429,
+        "Attack Recall": 0.9521974108676526,
+        "Balanced Accuracy": 0.9519022768623977,
+        "Macro F1": 0.9455599920978084,
+        "Attack F1": 0.9642970788519061
+    },
+    "validation_attack_recall_target_met": true,
+    "final_training_records": 175341
+}

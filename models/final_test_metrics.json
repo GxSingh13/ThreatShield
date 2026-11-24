@@ -1,0 +1,15 @@
+{
+    "Selected Model": "Random Forest - Depth 20 Leaf 2",
+    "Decision Threshold": 0.64,
+    "Accuracy": 0.905006558810669,
+    "Malicious Precision": 0.8743538053132672,
+    "Normal Recall": 0.8298648648648649,
+    "Attack Recall": 0.9663372452130945,
+    "Attack F1-Score": 0.9180472163716953,
+    "Macro F1-Score": 0.9025387964685534,
+    "Balanced Accuracy": 0.8981010550389796,
+    "True Negatives": 30705,
+    "False Positives": 6295,
+    "False Negatives": 1526,
+    "True Positives": 43806
+}

@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ThreatShield | Analysis Results</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='threatshield.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">🛡 ThreatShield</div>
+        <div class="tagline">Network Intrusion Detection System</div>
+    </header>
+
+    <main>
+
+        <!-- PAGE HEADING -->
+
+        <section class="hero">
+
+            <p class="eyebrow">ANALYSIS COMPLETE</p>
+
+            <h1>Traffic Analysis Results</h1>
+
+            <p class="description">
+                Your network traffic has been analyzed
+                using our trained machine learning model.
+            </p>
+
+        </section>
+
+        <!-- QUICK NAVIGATION -->
+
+        <div class="top-actions">
+
+            <a href="{{ url_for('home') }}" class="top-back-link">
+                ← Analyze Another File
+            </a>
+
+        </div>
+
+        <!-- UPLOADED FILE SUMMARY -->
+
+        <section class="upload-card">
+
+            <h2>Analysis Summary</h2>
+
+            <p>
+                File analyzed:
+                <strong>{{ filename }}</strong>
+            </p>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>Total Records</span>
+                    <strong>{{ total_records }}</strong>
+                </div>
+
+                <div class="stat-card normal-card">
+                    <span>Normal Traffic</span>
+                    <strong>{{ normal_count }}</strong>
+                    <small>{{ normal_pct }}%</small>
+                </div>
+
+                <div class="stat-card malicious-card">
+                    <span>Malicious Traffic</span>
+                    <strong>{{ malicious_count }}</strong>
+                    <small>{{ malicious_pct }}%</small>
+                </div>
+
+            </div>
+
+            <div class="threshold-info">
+                Decision threshold: {{ threshold }}
+            </div>
+
+        </section>
+
+        <!-- TRAFFIC DISTRIBUTION -->
+
+        <section class="upload-card">
+
+            <h2>Traffic Classification Distribution</h2>
+
+            <p>
+                Visual breakdown of traffic records
+                classified by ThreatShield.
+            </p>
+
+            <div class="distribution-bar">
+
+                <div class="normal-segment"
+                     style="width: {{ normal_pct }}%;">
+                </div>
+
+                <div class="malicious-segment"
+                     style="width: {{ malicious_pct }}%;">
+                </div>
+
+            </div>
+
+            <div class="chart-legend">
+
+                <div class="legend-item">
+                    <span class="legend-dot normal-dot"></span>
+                    <span>Normal Traffic</span>
+                    <strong>{{ normal_pct }}%</strong>
+                </div>
+
+                <div class="legend-item">
+                    <span class="legend-dot malicious-dot"></span>
+                    <span>Malicious Traffic</span>
+                    <strong>{{ malicious_pct }}%</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- DOWNLOAD REPORT -->
+
+        <section class="upload-card download-card">
+
+            <div>
+                <h2>Download Prediction Report</h2>
+
+                <p>
+                    Export all {{ total_records }} analyzed records,
+                    including predictions and malicious probabilities.
+                </p>
+            </div>
+
+            <a href="{{ download_url }}" class="download-button">
+                ⬇ Download CSV Report
+            </a>
+
+        </section>
+
+        <!-- MODEL PERFORMANCE -->
+
+        <section class="upload-card model-performance">
+
+            <p class="eyebrow">MODEL EVALUATION</p>
+
+            <h2>Model Performance</h2>
+
+            <p>
+                Performance measured on the official
+                UNSW-NB15 testing dataset.
+            </p>
+
+            <div class="performance-grid">
+
+                <div class="performance-card accuracy-card">
+                    <span>Accuracy</span>
+                    <strong>90.50%</strong>
+                </div>
+
+                <div class="performance-card">
+                    <span>Malicious Precision</span>
+                    <strong>87.44%</strong>
+                </div>
+
+                <div class="performance-card">
+                    <span>Normal Recall</span>
+                    <strong>82.99%</strong>
+                </div>
+
+                <div class="performance-card success-performance">
+                    <span>Malicious Recall</span>
+                    <strong>96.63%</strong>
+                </div>
+
+                <div class="performance-card">
+                    <span>Macro F1-score</span>
+                    <strong>90.25%</strong>
+                </div>
+
+                <div class="performance-card">
+                    <span>Balanced Accuracy</span>
+                    <strong>89.81%</strong>
+                </div>
+
+            </div>
+
+            <!-- MODEL INFORMATION -->
+
+            <div class="model-info">
+
+                <h3>Model Configuration</h3>
+
+                <p>Algorithm: <strong>Random Forest Classifier</strong></p>
+
+                <p>Configuration: <strong>Depth 20, Leaf 2</strong></p>
+
+                <p>Decision Threshold: <strong>0.64</strong></p>
+
+                <p>Testing Records: <strong>82,332</strong></p>
+
+            </div>
+
+            <!-- CONFUSION MATRIX -->
+
+            <div class="confusion-section">
+
+                <h3>Confusion Matrix</h3>
+
+                <p>
+                    The confusion matrix compares actual traffic
+                    labels with the predictions made by the model.
+                </p>
+
+                <div class="confusion-image-container">
+
+                    <img
+                        src="{{ url_for('static', filename='confusion_matrix.png') }}"
+                        alt="ThreatShield model confusion matrix"
+                        class="confusion-image"
+                    >
+
+                </div>
+
+                <div class="matrix-table-container">
+
+                    <table class="matrix-table">
+
+                        <thead>
+                            <tr>
+                                <th>Actual / Predicted</th>
+                                <th>Normal</th>
+                                <th>Malicious</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <th>Normal</th>
+                                <td class="matrix-correct">30,705</td>
+                                <td class="matrix-error">6,295</td>
+                            </tr>
+
+                            <tr>
+                                <th>Malicious</th>
+                                <td class="matrix-error">1,526</td>
+                                <td class="matrix-correct">43,806</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <p class="matrix-note">
+                    Green cells represent correct predictions.
+                    Red cells represent incorrect predictions.
+                </p>
+
+            </div>
+
+            <div class="evaluation-note">
+                Note: These evaluation metrics describe the model's
+                performance on the official testing dataset.
+                They are separate from the predictions for your
+                currently uploaded CSV file.
+            </div>
+
+        </section>
+
+        <!-- INDIVIDUAL PREDICTIONS -->
+
+        <section class="upload-card results-table-card">
+
+            <h2>Individual Predictions</h2>
+
+            <p>
+                Showing {{ shown_records }} of
+                {{ total_records }} records.
+            </p>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Record</th>
+                            <th>Prediction</th>
+                            <th>Malicious Probability</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for result in preview_results %}
+
+                        <tr>
+
+                            <td>{{ result.record_number }}</td>
+
+                            <td>
+
+                                {% if result.prediction == "Malicious" %}
+
+                                    <span class="status malicious-status">
+                                        MALICIOUS
+                                    </span>
+
+                                {% else %}
+
+                                    <span class="status normal-status">
+                                        NORMAL
+                                    </span>
+
+                                {% endif %}
+
+                            </td>
+
+                            <td>
+                                {{ result.malicious_probability }}%
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <footer>
+            <p>
+                ThreatShield | Machine Learning Based Intrusion Detection
+            </p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

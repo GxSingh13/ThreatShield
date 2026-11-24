@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Generated outputs
+data/outputs/
+data/processed/
+
+# Local datasets (obtain separately)
+data/raw/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/

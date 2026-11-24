@@ -1,0 +1,90 @@
+{
+    "Logistic Regression - Standard": {
+        "Threshold": 0.68,
+        "Accuracy": 0.9327326128489549,
+        "Precision": 0.9503768844221105,
+        "Normal Recall": 0.8941964285714286,
+        "Attack Recall": 0.9508148644685576,
+        "Balanced Accuracy": 0.922505646519993,
+        "Macro F1": 0.9226157913138924,
+        "Attack F1": 0.950595823996314,
+        "Attack Recall Target Met": true
+    },
+    "Logistic Regression - Balanced": {
+        "Threshold": 0.5,
+        "Accuracy": 0.9325900367846246,
+        "Precision": 0.9501402436471721,
+        "Normal Recall": 0.8936607142857143,
+        "Attack Recall": 0.9508567598139847,
+        "Balanced Accuracy": 0.9222587370498494,
+        "Macro F1": 0.9224388893624502,
+        "Attack F1": 0.9504983666973783,
+        "Attack Recall Target Met": true
+    },
+    "Decision Tree - Standard": {
+        "Threshold": 0.56,
+        "Accuracy": 0.9437109698023896,
+        "Precision": 0.9664266541689744,
+        "Normal Recall": 0.9296428571428571,
+        "Attack Recall": 0.950312120323432,
+        "Balanced Accuracy": 0.9399774887331446,
+        "Macro F1": 0.9358575524880387,
+        "Attack F1": 0.9583016476552598,
+        "Attack Recall Target Met": true
+    },
+    "Decision Tree - Balanced": {
+        "Threshold": 0.34,
+        "Accuracy": 0.9426559069263452,
+        "Precision": 0.9651034130564303,
+        "Normal Recall": 0.9267857142857143,
+        "Attack Recall": 0.9501026435962965,
+        "Balanced Accuracy": 0.9384441789410054,
+        "Macro F1": 0.9346150990905283,
+        "Attack F1": 0.9575442818840121,
+        "Attack Recall Target Met": true
+    },
+    "Random Forest - Standard": {
+        "Threshold": 0.63,
+        "Accuracy": 0.9488437081182811,
+        "Precision": 0.9729613917812915,
+        "Normal Recall": 0.9436607142857143,
+        "Attack Recall": 0.9512757132682559,
+        "Balanced Accuracy": 0.9474682137769851,
+        "Macro F1": 0.9418825319391834,
+        "Attack F1": 0.9619963563953735,
+        "Attack Recall Target Met": true
+    },
+    "Random Forest - Balanced": {
+        "Threshold": 0.45,
+        "Accuracy": 0.9488437081182811,
+        "Precision": 0.9729208620763529,
+        "Normal Recall": 0.9435714285714286,
+        "Attack Recall": 0.951317608613683,
+        "Balanced Accuracy": 0.9474445185925557,
+        "Macro F1": 0.9418799252205659,
+        "Attack F1": 0.961997966446365,
+        "Attack Recall Target Met": true
+    },
+    "Random Forest - Depth 20 Leaf 2": {
+        "Threshold": 0.64,
+        "Accuracy": 0.9520088967464142,
+        "Precision": 0.9767082079931242,
+        "Normal Recall": 0.9516071428571429,
+        "Attack Recall": 0.9521974108676526,
+        "Balanced Accuracy": 0.9519022768623977,
+        "Macro F1": 0.9455599920978084,
+        "Attack F1": 0.9642970788519061,
+        "Attack Recall Target Met": true
+    },
+    "Random Forest - Depth 15 Leaf 5": {
+        "Threshold": 0.63,
+        "Accuracy": 0.9516381989791554,
+        "Precision": 0.9769412776941278,
+        "Normal Recall": 0.9521428571428572,
+        "Attack Recall": 0.9514013993045373,
+        "Balanced Accuracy": 0.9517721282236973,
+        "Macro F1": 0.9451699709748416,
+        "Attack F1": 0.9640022074118096,
+        "Attack Recall Target Met": true
+    }
+}
